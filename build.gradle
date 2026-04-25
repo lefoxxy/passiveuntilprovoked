@@ -61,6 +61,15 @@ tasks.named('processResources', ProcessResources).configure {
     }
 }
 
+tasks.register('copyPackMetadataToClasses', Copy) {
+    from('src/main/resources/pack.mcmeta')
+    into(layout.buildDirectory.dir('classes/java/main'))
+}
+
+tasks.named('classes').configure {
+    dependsOn tasks.named('copyPackMetadataToClasses')
+}
+
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8'
 }
