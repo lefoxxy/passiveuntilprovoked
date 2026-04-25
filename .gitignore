@@ -1,0 +1,12 @@
+.gradle/
+.gradle-cache/
+build/
+run/
+out/
+
+*.log
+*.class
+
+.idea/
+*.iml
+.vscode/
